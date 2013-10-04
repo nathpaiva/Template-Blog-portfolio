@@ -1,0 +1,70 @@
+<style>
+div#geral{
+	width: 300px;
+}
+div#carousel{
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+div#carousel div{
+	width:300px;
+	height:100px;
+	float: left;
+	margin-right: 5px;
+}
+.positionStatic{
+	position: static;
+}
+.positionAbsolut{
+	position: absolute;
+}
+div#teste1{
+	background-color: grey;
+}
+div#teste2{
+	background-color: pink;
+}
+div#teste3{
+	background-color: yellow;
+}
+div#teste4{
+	background-color: purple;
+}
+</style>
+<script src="js/jquery.js"></script>
+<div id="geral">
+	<div id="carousel">
+		<div id="teste1" class="divContent positionStatic"></div>
+		<div id="teste2" class="divContent positionAbsolut"></div>
+		<div id="teste3" class="divContent positionAbsolut"></div>
+		<div id="teste4" class="divContent positionAbsolut"></div>
+	</div>
+</div>
+
+<script>
+
+var sizeGeral = document.getElementById('carousel').offsetWidth;
+
+var documento = $('.divContent');
+
+for (i = 0; i < documento.length; i++) {
+	var docs = documento[i];
+	var idDiv = $(docs).attr('id');
+
+	if(i > 0){
+		var getPosition = $('#'+idDiv).prev().position();
+		var leftObjetct = getPosition.left;
+
+		$('#'+idDiv).css('left' , $('#'+idDiv).width() + leftObjetct + 5);
+	}
+
+
+
+};
+
+// $('.positionStatic').click(function(){
+// 	console.log('teste')
+// });
+
+</script>
