@@ -1,0 +1,32 @@
+<?php
+	if (have_posts()) : while(have_posts()) : the_post();
+ ?>
+
+	<!-- Tudo que estiver aqui dentro é referente a uma postagem -->
+	<h1><?php echo get_the_category_list(); ?></h1>
+	<!-- <h1>Blog</h1> -->
+	<aside class="clearfix contentBlog">
+		<span class="signal blog"></span>
+		<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+
+		<!-- a<?php get_post_custom_values($key, $post_id); ?> -->
+
+		<?php
+		// traz o conteudo resumido
+			the_excerpt();
+		// traz todo o conteudo
+			// the_content();
+		 ?>
+
+	</aside>
+
+	<!-- <div class="divisor">...</div> -->
+
+<?php
+	endwhile;
+	else:
+ ?>
+
+<!-- Mostrar quando não tiver postagem -->
+
+<h1>Nenhuma postagem encontrada!!!</h1>
